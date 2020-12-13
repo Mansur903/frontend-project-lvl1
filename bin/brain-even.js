@@ -8,7 +8,7 @@ const getRandNumber = () => Math.floor(Math.random() * 100);
 const parityCheck = () => {
   let correctAnswerCounter = 0;
   console.log('Answer "yes" if the number is even, otherwise answer "no"');
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 3; i += 1) {
     const randNumber = getRandNumber();
     console.log(`Question: ${randNumber}`);
     const answer = readlineSync.question('Your answer: ');
