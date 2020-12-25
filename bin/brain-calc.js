@@ -46,8 +46,7 @@ const calculator = () => {
     if (Number(answer) === result()) {
       console.log('Correct!');
       correctAnswerCounter += 1;
-    }
-    else {
+    } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was '${result()}'`);
       console.log(`Let's try again, ${name}!`);
       break;
