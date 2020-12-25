@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
 import readlineSync from 'readline-sync';
-import { name } from '../src/cli.js';
+import nameFunc, { name } from '../src/cli.js';
 
 const getRandNumber = () => Math.floor(Math.random() * 100);
 let randNumber;
@@ -47,11 +47,13 @@ const calculator = () => {
       console.log('Correct!');
       correctAnswerCounter += 1;
     } else {
-      console.log(`${answer} is wrong answer ;(. Correct answer was '${result()}'`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result()}'`);
       console.log(`Let's try again, ${name}!`);
       break;
     }
   }
   if (correctAnswerCounter === 3) console.log(`Congratulations, ${name}!`);
 };
+
+nameFunc();
 calculator();
