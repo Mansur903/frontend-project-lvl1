@@ -21,6 +21,7 @@ const getRandExpression = () => {
       return `${randNumberOne} * ${randNumberTwo}`;
     default:
   }
+  return 1;
 };
 
 const result = () => {
@@ -33,6 +34,7 @@ const result = () => {
       return randNumberOne * randNumberTwo;
     default:
   }
+  return 1;
 };
 
 const calculator = () => {
