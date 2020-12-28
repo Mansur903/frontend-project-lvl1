@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
 import readlineSync from 'readline-sync';
-import nameFunc, { name } from '../src/cli.js';
+import greeting, { name } from '../src/cli.js';
 
-nameFunc();
+greeting();
 
 const randomNumber = (min, max) => {
   const number = min + Math.random() * (max + 1 - min);
