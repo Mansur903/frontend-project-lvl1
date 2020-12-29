@@ -5,12 +5,12 @@ import greeting, { name } from '../src/cli.js';
 
 greeting();
 
-const randomNumber = (min, max) => {
+const randomNumber = (min, max) => { // Генерация случайного числа в диапазоне
   const number = min + Math.random() * (max + 1 - min);
   return Math.floor(number);
 };
 
-const isPrime = (n) => {
+const isPrime = (n) => { // Функция определения чётности
   let i = 2;
   const limit = Math.sqrt(n);
   while (i <= limit) {

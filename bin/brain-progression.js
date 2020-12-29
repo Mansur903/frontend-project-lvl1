@@ -4,27 +4,27 @@ import readlineSync from 'readline-sync';
 import greeting, { name } from '../src/cli.js';
 
 greeting();
-
+// ---------------------------------------------------------- Генерация случайного числа в диапазоне
 const randomNumber = (min, max) => {
   const number = min + Math.random() * (max + 1 - min);
   return Math.floor(number);
 };
-
+// ----------------------------------------------------------
 let correctAnswerCounter = 0;
 
 console.log('What number is missing in the progression?');
 
 for (let counter = 1; counter <= 3; counter += 1) {
   // ---------------------------------------------------------- Объявление констант
-  const progressionStep = randomNumber(1, 10);
-  const progressionLength = randomNumber(5, 15);
-  const missingPosition = randomNumber(0, progressionLength - 1);
-  const theFirstNumber = randomNumber(0, 50);
+  const progressionStep = randomNumber(1, 10); // Шаг прогрессии
+  const progressionLength = randomNumber(5, 15); // Длина прогрессии
+  const missingPosition = randomNumber(0, progressionLength - 1); // Позиция скрытого числа
+  const theFirstNumber = randomNumber(0, 50); // Первое число прогрессии
   const progressionArray = [];
   progressionArray[0] = theFirstNumber;
   //----------------------------------------------------------
   for (let i = 1; i < progressionLength; i += 1) {
-    progressionArray[i] = progressionArray[i - 1] + progressionStep;
+    progressionArray[i] = progressionArray[i - 1] + progressionStep; // Заполнение масива прогрессии
   }
   const rightAnswer = progressionArray[missingPosition];
   progressionArray[missingPosition] = '..';

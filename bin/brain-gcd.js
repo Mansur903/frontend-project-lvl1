@@ -5,7 +5,7 @@ import greeting, { name } from '../src/cli.js';
 
 const getRandNumber = () => Math.floor(Math.random() * 100 + 1);
 
-const getGCD = (a, b) => {
+const getGCD = (a, b) => { // Функция вычисления НОД
   if (b > 0) {
     const k = a % b;
     return getGCD(b, k);

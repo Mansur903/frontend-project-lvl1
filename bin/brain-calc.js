@@ -4,11 +4,11 @@ import readlineSync from 'readline-sync';
 import greeting, { name } from '../src/cli.js';
 
 const getRandNumber = () => Math.floor(Math.random() * 100);
-let randNumber;
+let randNumber; // Случайное число для генерации мат. операции
 let randNumberOne;
 let randNumberTwo;
 
-const getRandExpression = () => {
+const getRandExpression = () => { // Получение случайного выражения
   randNumberOne = getRandNumber();
   randNumberTwo = getRandNumber();
   randNumber = Math.floor(Math.random() * 3);
@@ -24,7 +24,7 @@ const getRandExpression = () => {
   return 1;
 };
 
-const result = () => {
+const result = () => { // Вычисление результата для сравнения с ответом пользователя
   switch (randNumber) {
     case 0:
       return randNumberOne + randNumberTwo;
