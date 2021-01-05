@@ -1,7 +1,10 @@
 /* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
+
 import readlineSync from 'readline-sync';
-import getRandNumber from '../src/index.js';
-import { name } from '../src/cli.js';
+import getRandNumber from '../src/utils.js';
+import writeCongratulation, {
+  forLoop, tryAgain, writeCorrect, wrongAnswer, loopCounter, question,
+} from '../src/index.js';
 
 let randNumber; // Случайное число для генерации мат. операции
 let randNumberOne;
@@ -36,22 +39,26 @@ export const result = () => { // Вычисление результата дл�
   return 1;
 };
 
-const calculator = () => {
-  let correctAnswerCounter = 0;
-  console.log('What is the result of the expression?');
-  for (let i = 1; i <= 3; i += 1) {
-    console.log('Question: ', getRandExpression());
-    const answer = readlineSync.question('Your answer: ');
-    if (Number(answer) === result()) {
-      console.log('Correct!');
-      correctAnswerCounter += 1;
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result()}'`);
-      console.log(`Let's try again, ${name}!`);
-      break;
-    }
+let correctAnswerCounter = 0;
+
+const brainCalcGame = () => {
+  question(getRandExpression());
+  const answer = readlineSync.question('Your answer: ');
+  if (Number(answer) === result()) {
+    writeCorrect();
+    correctAnswerCounter += 1;
+  } else {
+    wrongAnswer(answer, result());
+    tryAgain();
+    return 0;
   }
-  if (correctAnswerCounter === 3) console.log(`Congratulations, ${name}!`);
+  return 1;
+};
+
+const calculator = () => {
+  console.log('What is the result of the expression?');
+  forLoop(brainCalcGame);
+  if (correctAnswerCounter === loopCounter) writeCongratulation();
 };
 
 export default calculator;

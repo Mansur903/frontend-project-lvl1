@@ -1,51 +1,56 @@
 /* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
 
 import readlineSync from 'readline-sync';
-import getRandNumber from '../src/index.js';
-import { name } from '../src/cli.js';
+import getRandNumber from '../src/utils.js';
+import writeCongratulation, {
+  forLoop, tryAgain, writeCorrect, wrongAnswer, loopCounter, question,
+} from '../src/index.js';
 
 const parityCheck = () => {
   let correctAnswerCounter = 0;
   console.log('Answer "yes" if the number is even, otherwise answer "no"');
-  for (let i = 1; i <= 3; i += 1) {
+
+  const brainEvenGame = () => {
     const randNumber = getRandNumber();
-    console.log(`Question: ${randNumber}`);
+    question(randNumber);
     const answer = readlineSync.question('Your answer: ');
     if (answer === 'yes') {
       if (randNumber % 2 === 1) {
-        console.log('"yes" is wrong answer ;(. Correct answer was "no"');
-        console.log(`Let's try again, ${name}!`);
-        break;
-      } else {
-        console.log('Correct!');
-        correctAnswerCounter += 1;
+        wrongAnswer('yes', 'no');
+        tryAgain();
+        return 0;
       }
+      writeCorrect();
+      correctAnswerCounter += 1;
     }
     if (answer === 'no') {
       if (randNumber % 2 === 1) {
-        console.log('Correct!');
+        writeCorrect();
         correctAnswerCounter += 1;
       } else {
-        console.log('"no" is wrong answer ;(. Correct answer was "yes"');
-        console.log(`Let's try again, ${name}!`);
-        break;
+        wrongAnswer('no', 'yes');
+        tryAgain();
+        return 0;
       }
     }
     if ((answer !== 'yes') && (answer !== 'no')) {
       switch (randNumber % 2) {
         case 1:
-          console.log(`"${answer}" is wrong answer ;(. Correct answer was "no"`);
-          console.log(`Let's try again, ${name}!`);
-          break;
+          wrongAnswer(answer, 'no');
+          tryAgain();
+          return 0;
         case 0:
-          console.log(`"${answer}" is wrong answer ;(. Correct answer was "yes"`);
-          console.log(`Let's try again, ${name}!`);
-          break;
+          wrongAnswer(answer, 'yes');
+          tryAgain();
+          return 0;
         default:
       }
-      break;
     }
-  }
-  if (correctAnswerCounter === 3) console.log(`Congratulations, ${name}!`);
+    return 1;
+  };
+
+  forLoop(brainEvenGame);
+
+  if (correctAnswerCounter === loopCounter) writeCongratulation();
 };
 export default parityCheck;

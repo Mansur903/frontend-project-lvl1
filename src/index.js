@@ -1,11 +1,40 @@
 /* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
 
-// ---------------------------------------------------------- Генерация случайного числа в диапазоне
-export const randomNumber = (min, max) => {
-  const number = min + Math.random() * (max + 1 - min);
-  return Math.floor(number);
-};
-// ----------------------------------------------------------s
+import readlineSync from 'readline-sync';
 
-const getRandNumber = () => Math.floor(Math.random() * 100 + 1);// Генерация случайного числа
-export default getRandNumber;
+const loopCounter = 3;
+
+const name = readlineSync.question('May I have your name? ');
+
+export const greeting = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log(`Hello, ${name}!`);
+};
+
+export const writeCongratulation = () => {
+  console.log(`Congratulations, ${name}!`);
+};
+
+export const tryAgain = () => {
+  console.log(`Let's try again, ${name}!`);
+};
+
+export const writeCorrect = () => {
+  console.log('Correct!');
+};
+
+export const wrongAnswer = (wrong, correct) => {
+  console.log(`'${wrong}' is wrong answer ;(. Correct answer was '${correct}'`);
+};
+
+export const forLoop = (game) => {
+  for (let i = 1; i <= loopCounter; i += 1) {
+    if (game() === 0) break;
+  }
+};
+
+export const question = (gameQuestion) => {
+  console.log('Question: ', gameQuestion);
+};
+
+export default writeCongratulation;
