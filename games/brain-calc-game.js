@@ -2,8 +2,8 @@
 
 import readlineSync from 'readline-sync';
 import getRandNumber from '../src/utils.js';
-import writeCongratulation, {
-  forLoop, tryAgain, writeCorrect, wrongAnswer, loopCounter, question,
+import {
+  writeCongratulation, forLoop, tryAgain, writeCorrect, wrongAnswer, loopCounter, question,
 } from '../src/index.js';
 
 let randNumber; // Случайное число для генерации мат. операции

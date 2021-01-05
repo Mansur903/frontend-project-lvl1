@@ -1,8 +1,8 @@
 /* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
 import readlineSync from 'readline-sync';
 import { randomNumber } from '../src/utils.js';
-import writeCongratulation, {
-  forLoop, tryAgain, writeCorrect, wrongAnswer, loopCounter, question,
+import {
+  writeCongratulation, forLoop, tryAgain, writeCorrect, wrongAnswer, loopCounter, question,
 } from '../src/index.js';
 
 let correctAnswerCounter = 0;
