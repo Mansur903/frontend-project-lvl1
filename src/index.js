@@ -1,40 +1,55 @@
 /* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
 
 import readlineSync from 'readline-sync';
+import { getRandExpression } from '../games/brain-calc-game.js';
 
-export const loopCounter = 3;
+const loopCounter = 3;
+let globalName = '';
 
-const name = readlineSync.question('May I have your name? ');
-
-export const greeting = () => {
+const greeting = () => {
   console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  globalName = name;
   console.log(`Hello, ${name}!`);
 };
 
-export const writeCongratulation = () => {
-  console.log(`Congratulations, ${name}!`);
+const questionGame = (gameQuestion) => {
+  console.log(gameQuestion);
 };
 
-export const tryAgain = () => {
-  console.log(`Let's try again, ${name}!`);
-};
+const questionExp = (gameExpression) => (`Question: ${gameExpression}`);
 
-export const writeCorrect = () => {
-  console.log('Correct!');
-};
-
-export const wrongAnswer = (wrong, correct) => {
+const wrongAnswer = (wrong, correct) => {
   console.log(`'${wrong}' is wrong answer ;(. Correct answer was '${correct}'`);
 };
 
-export const forLoop = (game) => {
+const tryAgain = () => {
+  console.log(`Let's try again, ${globalName}!`);
+};
+
+const writeCongratulation = () => {
+  console.log(`Congratulations, ${globalName}!`);
+};
+
+const gameEngine = (gameQuestion, gameExpression, answerFormat, result) => {
+  let correctAnswerCounter = 0;
+  greeting();
+  questionGame(gameQuestion);
   for (let i = 1; i <= loopCounter; i += 1) {
-    if (game() === 0) break;
+    console.log(questionExp(gameExpression));
+    let answer = readlineSync.question('Your answer: ');
+    if (answerFormat === 'number') answer = Number(answer);
+    if (answer === result) {
+      console.log('Correct!');
+      correctAnswerCounter += 1;
+    } else {
+      wrongAnswer(answer, result);
+      tryAgain();
+      break;
+    }
   }
+  if (correctAnswerCounter === loopCounter) writeCongratulation();
+  return 1;
 };
 
-export const question = (gameQuestion) => {
-  console.log('Question: ', gameQuestion);
-};
-
-export default writeCongratulation;
+export default gameEngine;
