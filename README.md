@@ -12,7 +12,7 @@
 ***  
 ### brain-calc  
 Игра, в которой требуется правильно посчитать значение случайно генерируемого выражения. Необходимо правильно ответить на 3 вопроса, иначе испытание будет провалено. Ниже представлена аскинема с демонстрацией различных исходов игры:  
-[![asciicast](https://asciinema.org/a/OlQLw9DUsn4xEUjZ1UznGS6vP.svg)](https://asciinema.org/a/OlQLw9DUsn4xEUjZ1UznGS6vP)  
+[![asciicast](https://asciinema.org/a/iAZTSTWgWqrmnvE72HNoEalbF.svg)](https://asciinema.org/a/iAZTSTWgWqrmnvE72HNoEalbF)  
   
 ***  
   
