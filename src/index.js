@@ -1,7 +1,6 @@
 /* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
 
 import readlineSync from 'readline-sync';
-import { getRandExpression } from '../games/brain-calc-game.js';
 
 const loopCounter = 3;
 let globalName = '';
@@ -12,12 +11,6 @@ const greeting = () => {
   globalName = name;
   console.log(`Hello, ${name}!`);
 };
-
-const questionGame = (gameQuestion) => {
-  console.log(gameQuestion);
-};
-
-const questionExp = (gameExpression) => (`Question: ${gameExpression}`);
 
 const wrongAnswer = (wrong, correct) => {
   console.log(`'${wrong}' is wrong answer ;(. Correct answer was '${correct}'`);
@@ -34,16 +27,16 @@ const writeCongratulation = () => {
 const gameEngine = (gameQuestion, gameExpression, answerFormat, result) => {
   let correctAnswerCounter = 0;
   greeting();
-  questionGame(gameQuestion);
+  console.log(gameQuestion());
   for (let i = 1; i <= loopCounter; i += 1) {
-    console.log(questionExp(gameExpression));
+    console.log('Question: ', gameExpression());
     let answer = readlineSync.question('Your answer: ');
-    if (answerFormat === 'number') answer = Number(answer);
-    if (answer === result) {
+    if (answerFormat === 'number' && !Number.isNaN(Number(answer))) answer = Number(answer);
+    if (answer === result()) {
       console.log('Correct!');
       correctAnswerCounter += 1;
     } else {
-      wrongAnswer(answer, result);
+      wrongAnswer(answer, result());
       tryAgain();
       break;
     }

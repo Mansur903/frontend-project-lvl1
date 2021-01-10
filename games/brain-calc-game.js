@@ -1,6 +1,5 @@
 /* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
 
-// import readlineSync from 'readline-sync';
 import getRandNumber from '../src/utils.js';
 
 let randNumber; // Случайное число для генерации мат. операции
@@ -33,7 +32,7 @@ export const result = () => { // Вычисление результата дл�
       return randNumberOne * randNumberTwo;
     default:
   }
-  return 1;
+  return 0;
 };
 
 export const gameQuestion = () => {
@@ -42,27 +41,3 @@ export const gameQuestion = () => {
 };
 
 export const answerFormat = 'number';
-
-// let correctAnswerCounter = 0;
-
-/* const brainCalcGame = () => {
-  question(getRandExpression());
-  const answer = readlineSync.question('Your answer: ');
-  if (Number(answer) === result()) {
-    writeCorrect();
-    correctAnswerCounter += 1;
-  } else {
-    wrongAnswer(answer, result());
-    tryAgain();
-    return 0;
-  }
-  return 1;
-};
-
-const calculator = () => {
-  console.log('What is the result of the expression?');
-  forLoop(brainCalcGame);
-  if (correctAnswerCounter === loopCounter) writeCongratulation();
-};
-
-export default calculator; */

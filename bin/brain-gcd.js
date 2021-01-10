@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
-import { greeting } from '../src/index.js';
-import brainGCD from '../games/brain-gcd-game.js';
+import gameEngine from '../src/index.js';
+import {
+  gameQuestion, getRandExpression, answerFormat, result,
+} from '../games/brain-gcd-game.js';
 
-greeting();
-brainGCD();
+gameEngine(gameQuestion, getRandExpression, answerFormat, result);
