@@ -1,6 +1,4 @@
-/* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
-
-import getRandNumber from '../src/utils.js';
+import { getRandNumber } from '../src/utils.js';
 
 let randNumberOne;
 let randNumberTwo;

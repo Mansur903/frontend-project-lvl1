@@ -1,6 +1,4 @@
-/* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
-
-import getRandNumber from '../src/utils.js';
+import { getRandNumber } from '../src/utils.js';
 
 export const gameQuestion = () => {
   const ques = 'Answer "yes" if the number is even, otherwise answer "no"';

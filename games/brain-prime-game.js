@@ -1,5 +1,4 @@
-/* eslint no-console: "off", import/extensions: "off", no-await-in-loop: "off" */
-import { randomNumber } from '../src/utils.js';
+import { getRandNumber } from '../src/utils.js';
 
 let randNumber;
 
@@ -16,7 +15,7 @@ const isPrime = (n) => { // Функция определения чётност
 };
 
 export const getRandExpression = () => {
-  randNumber = randomNumber(1, 100);
+  randNumber = getRandNumber(1, 100);
   return randNumber;
 };
 
