@@ -30,7 +30,7 @@
   
 ### brain-progression  
 В данной игре пользователю показывается последовательность чисел арифметической прогрессии, в которой одно из чисел пропущено. Необходимо указать пропущенное число. Требуется правильно ответить на 3 вопроса, иначе испытание будет провалено. Ниже представлена аскинема с демонстрацией различных исходов игры:  
-[![asciicast](https://asciinema.org/a/B1ZmMDdgBkvFxbBLOw2RcLfTJ.svg)](https://asciinema.org/a/B1ZmMDdgBkvFxbBLOw2RcLfTJ)  
+[![asciicast](https://asciinema.org/a/G5xkdZ0RIWd7XKr8L7E4PzMxK.svg)](https://asciinema.org/a/G5xkdZ0RIWd7XKr8L7E4PzMxK)    
   
 ***  
   
