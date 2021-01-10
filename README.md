@@ -36,7 +36,7 @@
   
 ### brain-prime  
 В данной игре пользователю демонстрируется случайно сгенерированное число. Необходимо указать, является ли оно простым или нет. Принимаются только ответы 'yes' и 'no'. При указании ответа другого формата, он будет засчитан как неправильный. Требуется правильно ответить на 3 вопроса, иначе испытание будет провалено. Ниже представлена аскинема с демонстрацией различных исходов игры:
-[![asciicast](https://asciinema.org/a/g7fFHD8w2SChIXXHjtjlMCcl7.svg)](https://asciinema.org/a/g7fFHD8w2SChIXXHjtjlMCcl7)  
+[![asciicast](https://asciinema.org/a/NmBjBkNmWGzM1sHJ7xBVF3L4K.svg)](https://asciinema.org/a/NmBjBkNmWGzM1sHJ7xBVF3L4K)  
   
 ### Hexlet tests and linter status:
 ![Actions Status](/workflows/hexlet-check/badge.svg)
