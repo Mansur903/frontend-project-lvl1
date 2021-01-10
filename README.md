@@ -24,7 +24,7 @@
   
 ### brain-GCD  
 Игра, в которой требуется указать НОД двух случайно сгенерированных чисел. Необходимо правильно ответить на 3 вопроса, иначе испытание будет провалено. Ниже представлена аскинема с демонстрацией различных исходов игры:  
-[![asciicast](https://asciinema.org/a/0FG2iPHvcE3JUG49GUSNCYw2p.svg)](https://asciinema.org/a/0FG2iPHvcE3JUG49GUSNCYw2p)  
+[![asciicast](https://asciinema.org/a/UkBkFi97AqeTaHQE3dwVbxTv3.svg)](https://asciinema.org/a/UkBkFi97AqeTaHQE3dwVbxTv3)  
   
 ***  
   
