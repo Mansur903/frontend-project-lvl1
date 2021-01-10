@@ -18,7 +18,7 @@
   
 ### brain-even  
 Игра, в которой требуется указать явлется ли случайно сгенерированное число чётным или нет. Принимаются только ответы 'yes' и 'no'. При указании ответа другого формата, он будет засчитан как неправильный. Необходимо правильно ответить на 3 вопроса, иначе испытание будет провалено. Ниже представлена аскинема с демонстрацией различных исходов игры:
-[![asciicast](https://asciinema.org/a/35EqcfvltNo8cUS0Sns5Wai2L.svg)](https://asciinema.org/a/35EqcfvltNo8cUS0Sns5Wai2L)  
+[![asciicast](https://asciinema.org/a/EO45Dql4qGAyXAo6IVLTYTpv9.svg)](https://asciinema.org/a/EO45Dql4qGAyXAo6IVLTYTpv9)  
   
 ***  
   
