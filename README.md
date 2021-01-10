@@ -1,4 +1,11 @@
 # Проект Brain-Games  
+  
+  ### Hexlet tests and linter status:
+![Actions Status](/workflows/hexlet-check/badge.svg)
+
+<a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
+
+https://github.com/Mansur903/frontend-project-lvl1/workflows/make-lint/badge.svg  
 
 **Интро**  
   
@@ -38,9 +45,3 @@
 В данной игре пользователю демонстрируется случайно сгенерированное число. Необходимо указать, является ли оно простым или нет. Принимаются только ответы 'yes' и 'no'. При указании ответа другого формата, он будет засчитан как неправильный. Требуется правильно ответить на 3 вопроса, иначе испытание будет провалено. Ниже представлена аскинема с демонстрацией различных исходов игры:
 [![asciicast](https://asciinema.org/a/NmBjBkNmWGzM1sHJ7xBVF3L4K.svg)](https://asciinema.org/a/NmBjBkNmWGzM1sHJ7xBVF3L4K)  
   
-### Hexlet tests and linter status:
-![Actions Status](/workflows/hexlet-check/badge.svg)
-
-<a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
-
-https://github.com/Mansur903/frontend-project-lvl1/workflows/make-lint/badge.svg
