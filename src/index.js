@@ -5,14 +5,14 @@ import readlineSync from 'readline-sync';
 const loopCounter = 3;
 let globalName = '';
 
-const greeting = () => {
+const writeGreeting = () => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   globalName = name;
   console.log(`Hello, ${name}!`);
 };
 
-const wrongAnswer = (wrong, correct) => {
+const writeThatAnswerIsWrong = (wrong, correct) => {
   console.log(`'${wrong}' is wrong answer ;(. Correct answer was '${correct}'`);
 };
 
@@ -26,7 +26,7 @@ const writeCongratulation = () => {
 
 const gameEngine = (gameQuestion, gameExpression, answerFormat, result) => {
   let correctAnswerCounter = 0;
-  greeting();
+  writeGreeting();
   console.log(gameQuestion());
   for (let i = 1; i <= loopCounter; i += 1) {
     console.log('Question: ', gameExpression());
@@ -36,7 +36,7 @@ const gameEngine = (gameQuestion, gameExpression, answerFormat, result) => {
       console.log('Correct!');
       correctAnswerCounter += 1;
     } else {
-      wrongAnswer(answer, result());
+      writeThatAnswerIsWrong(answer, result());
       tryAgain();
       break;
     }

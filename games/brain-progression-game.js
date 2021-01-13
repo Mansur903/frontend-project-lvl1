@@ -1,8 +1,9 @@
 import { getRandNumber } from '../src/utils.js';
+import gameEngine from '../src/index.js';
 
 let rightAnswer;
 
-export const result = () => rightAnswer;
+export const getResult = () => rightAnswer;
 
 export const getRandExpression = () => {
   const progressionArray = [];
@@ -19,9 +20,15 @@ export const getRandExpression = () => {
   return progressionArray;
 };
 
-export const gameQuestion = () => {
+export const writeGameQuestion = () => {
   const ques = 'What number is missing in the progression?';
   return ques;
 };
 
 export const answerFormat = 'number';
+
+const game = () => {
+  gameEngine(writeGameQuestion, getRandExpression, answerFormat, getResult);
+};
+
+export default game;

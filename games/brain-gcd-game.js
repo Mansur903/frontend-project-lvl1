@@ -1,9 +1,10 @@
 import { getRandNumber } from '../src/utils.js';
+import gameEngine from '../src/index.js';
 
 let randNumberOne;
 let randNumberTwo;
 
-const getGCD = (a, b) => { // Функция вычисления НОД
+export const getGCD = (a, b) => { // Функция вычисления НОД
   if (b > 0) {
     const k = a % b;
     return getGCD(b, k);
@@ -11,7 +12,7 @@ const getGCD = (a, b) => { // Функция вычисления НОД
   return Math.abs(a);
 };
 
-export const result = () => getGCD(randNumberOne, randNumberTwo);
+export const getResult = () => getGCD(randNumberOne, randNumberTwo);
 
 export const getRandExpression = () => {
   randNumberOne = getRandNumber();
@@ -20,11 +21,15 @@ export const getRandExpression = () => {
   return expression;
 };
 
-export const gameQuestion = () => {
+export const writeGameQuestion = () => {
   const ques = 'Find the greatest common divisor of given numbers.';
   return ques;
 };
 
 export const answerFormat = 'number';
 
-export default getGCD;
+const game = () => {
+  gameEngine(writeGameQuestion, getRandExpression, answerFormat, getResult);
+};
+
+export default game;

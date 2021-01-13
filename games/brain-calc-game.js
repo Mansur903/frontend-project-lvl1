@@ -1,4 +1,5 @@
 import { getRandNumber } from '../src/utils.js';
+import gameEngine from '../src/index.js';
 
 let randNumber; // Случайное число для генерации мат. операции
 let randNumberOne;
@@ -20,7 +21,7 @@ export const getRandExpression = () => { // Получение случайно�
   return 1;
 };
 
-export const result = () => { // Вычисление результата для сравнения с ответом пользователя
+export const getResult = () => { // Вычисление результата для сравнения с ответом пользователя
   switch (randNumber) {
     case 0:
       return randNumberOne + randNumberTwo;
@@ -33,9 +34,15 @@ export const result = () => { // Вычисление результата дл�
   return 0;
 };
 
-export const gameQuestion = () => {
+export const writeGameQuestion = () => {
   const ques = 'What is the result of the expression?';
   return ques;
 };
 
 export const answerFormat = 'number';
+
+const game = () => {
+  gameEngine(writeGameQuestion, getRandExpression, answerFormat, getResult);
+};
+
+export default game;
