@@ -3,7 +3,7 @@ import launchTheGameEngine from '../index.js';
 
 let randNumber;
 
-const isPrime = (n) => { // Функция определения чётности
+const isPrime = (n) => {
   let i = 2;
   const limit = Math.sqrt(n);
   while (i <= limit) {
