@@ -1,5 +1,5 @@
-import { getRandNumber } from '../src/utils.js';
-import gameEngine from '../src/index.js';
+import { getRandNumber } from '../utils.js';
+import launchTheGameEngine from '../index.js';
 
 let randNumber;
 
@@ -22,15 +22,12 @@ export const getRandExpression = () => {
 
 export const getResult = () => isPrime(randNumber);
 
-export const writeGameQuestion = () => {
-  const ques = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  return ques;
-};
+const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 export const answerFormat = 'string';
 
-const game = () => {
-  gameEngine(writeGameQuestion, getRandExpression, answerFormat, getResult);
+const startTheGame = () => {
+  launchTheGameEngine(gameQuestion, getRandExpression, answerFormat, getResult);
 };
 
-export default game;
+export default startTheGame;
