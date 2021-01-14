@@ -4,7 +4,7 @@ import launchTheGameEngine from '../index.js';
 let randNumberOne;
 let randNumberTwo;
 
-export const getGCD = (a, b) => { // Функция вычисления НОД
+export const getGCD = (a, b) => {
   if (b > 0) {
     const k = a % b;
     return getGCD(b, k);
