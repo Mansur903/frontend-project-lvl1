@@ -1,5 +1,5 @@
-import { getRandNumber } from '../src/utils.js';
-import gameEngine from '../src/index.js';
+import { getRandNumber } from '../utils.js';
+import launchTheGameEngine from '../index.js';
 
 let randNumberOne;
 let randNumberTwo;
@@ -21,15 +21,12 @@ export const getRandExpression = () => {
   return expression;
 };
 
-export const writeGameQuestion = () => {
-  const ques = 'Find the greatest common divisor of given numbers.';
-  return ques;
-};
+const gameQuestion = 'Find the greatest common divisor of given numbers.';
 
 export const answerFormat = 'number';
 
-const game = () => {
-  gameEngine(writeGameQuestion, getRandExpression, answerFormat, getResult);
+const startTheGame = () => {
+  launchTheGameEngine(gameQuestion, getRandExpression, answerFormat, getResult);
 };
 
-export default game;
+export default startTheGame;

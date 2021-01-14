@@ -1,5 +1,5 @@
-import { getRandNumber } from '../src/utils.js';
-import gameEngine from '../src/index.js';
+import { getRandNumber } from '../utils.js';
+import launchTheGameEngine from '../index.js';
 
 let rightAnswer;
 
@@ -7,8 +7,8 @@ export const getResult = () => rightAnswer;
 
 export const getRandExpression = () => {
   const progressionArray = [];
-  const progressionStep = getRandNumber(1, 10); // Шаг прогрессии
-  const progressionLength = getRandNumber(5, 15); // Длина прогрессии
+  const progressionStep = getRandNumber(1, 10);
+  const progressionLength = getRandNumber(5, 15);
   const missingPosition = getRandNumber(0, progressionLength - 1); // Позиция скрытого числа
   const theFirstNumber = getRandNumber(0, 50); // Первое число прогрессии
   progressionArray[0] = theFirstNumber;
@@ -20,15 +20,12 @@ export const getRandExpression = () => {
   return progressionArray;
 };
 
-export const writeGameQuestion = () => {
-  const ques = 'What number is missing in the progression?';
-  return ques;
-};
+const gameQuestion = 'What number is missing in the progression?';
 
 export const answerFormat = 'number';
 
-const game = () => {
-  gameEngine(writeGameQuestion, getRandExpression, answerFormat, getResult);
+const startTheGame = () => {
+  launchTheGameEngine(gameQuestion, getRandExpression, answerFormat, getResult);
 };
 
-export default game;
+export default startTheGame;
