@@ -17,7 +17,7 @@ export const getRandExpression = () => {
   }
   rightAnswer = progressionArray[missingPosition];
   progressionArray[missingPosition] = '..';
-  return progressionArray;
+  return progressionArray.join(' ');
 };
 
 const gameQuestion = 'What number is missing in the progression?';
