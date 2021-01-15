@@ -17,7 +17,7 @@ export const getResult = () => getGCD(randNumberOne, randNumberTwo);
 export const getRandExpression = () => {
   randNumberOne = getRandNumber();
   randNumberTwo = getRandNumber();
-  const expression = `${randNumberOne}  ${randNumberTwo}`;
+  const expression = `${randNumberOne} ${randNumberTwo}`;
   return expression;
 };
 
