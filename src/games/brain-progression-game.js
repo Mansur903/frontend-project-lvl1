@@ -9,7 +9,7 @@ export const getRandExpression = () => {
   const progressionArray = [];
   const progressionStep = getRandNumber(1, 10);
   const progressionLength = getRandNumber(5, 15);
-  const missingPosition = getRandNumber(0, progressionLength - 1); // Позиция скрытого числа
+  const missingPosition = getRandNumber(0, progressionLength - 1);
   const theFirstNumber = getRandNumber(0, 50); // Первое число прогрессии
   progressionArray[0] = theFirstNumber;
   for (let i = 1; i < progressionLength; i += 1) {
