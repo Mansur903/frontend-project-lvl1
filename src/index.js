@@ -14,7 +14,7 @@ const launchTheGameEngine = (gameQuestion, gameExpression, answerFormat, result)
   writeGreeting();
   console.log(gameQuestion);
   for (let i = 1; i <= roundsCount; i += 1) {
-    console.log('Question: ', gameExpression());
+    console.log(`Question: ${gameExpression()}`);
     let answer = readlineSync.question('Your answer: ');
     if (answerFormat === 'number' && !Number.isNaN(Number(answer))) answer = Number(answer);
     if (answer === result()) {
