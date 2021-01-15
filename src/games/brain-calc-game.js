@@ -3,7 +3,7 @@ import launchTheGameEngine from '../index.js';
 
 let result;
 
-export const getRandExpression = () => { // Получение случайного выражения
+export const getRandExpression = () => {
   const randNumberOne = getRandNumber();
   const randNumberTwo = getRandNumber();
   const randNumber = getRandNumber(0, 2);
