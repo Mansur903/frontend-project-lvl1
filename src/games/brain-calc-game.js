@@ -28,7 +28,7 @@ const getRandExpression = () => {
   return expression;
 };
 
-const getResult = () => result;
+const getResult = () => String(result);
 
 const gameQuestion = 'What is the result of the expression?';
 
