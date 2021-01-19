@@ -1,5 +1,5 @@
 import { getRandNumber } from '../utils.js';
-import launchTheGameEngine from '../index.js';
+import launchGameEngine from '../index.js';
 
 let randNumber;
 
@@ -8,26 +8,27 @@ const isPrime = (n) => {
   const limit = Math.sqrt(n);
   while (i <= limit) {
     if (n % i === 0) {
-      return 'no';
+      return false;
     }
     i += 1;
   }
-  return 'yes';
+  return true;
 };
 
-export const getRandExpression = () => {
+const getRandExpression = () => {
   randNumber = getRandNumber(1, 100);
   return randNumber;
 };
 
-export const getResult = () => isPrime(randNumber);
-
-const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-export const answerFormat = 'string';
-
-const startTheGame = () => {
-  launchTheGameEngine(gameQuestion, getRandExpression, answerFormat, getResult);
+const getResult = () => {
+  if (isPrime(randNumber)) return 'yes';
+  return 'no';
 };
 
-export default startTheGame;
+const gameDecription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const startGame = () => {
+  launchGameEngine(gameDecription, getRandExpression, getResult);
+};
+
+export default startGame;

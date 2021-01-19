@@ -1,31 +1,33 @@
 import { getRandNumber } from '../utils.js';
-import launchTheGameEngine from '../index.js';
+import launchGameEngine from '../index.js';
 
-let rightAnswer;
+let answer;
 
-export const getResult = () => rightAnswer;
+const getResult = () => String(answer);
 
-export const getRandExpression = () => {
-  const progressionArray = [];
-  const progressionStep = getRandNumber(1, 10);
-  const progressionLength = getRandNumber(5, 15);
-  const missingPosition = getRandNumber(0, progressionLength - 1);
-  const theFirstNumber = getRandNumber(0, 50); // Первое число прогрессии
-  progressionArray[0] = theFirstNumber;
-  for (let i = 1; i < progressionLength; i += 1) {
-    progressionArray[i] = progressionArray[i - 1] + progressionStep; // Заполнение прогрессии
+const generateProgression = (length, step, firstNumber) => {
+  const progressionSequence = [];
+  const missingPosition = getRandNumber(0, length - 1);
+  progressionSequence[0] = firstNumber;
+  for (let i = 1; i < length; i += 1) {
+    progressionSequence[i] = progressionSequence[i - 1] + step; // Заполнение прогрессии
   }
-  rightAnswer = progressionArray[missingPosition];
-  progressionArray[missingPosition] = '..';
-  return progressionArray.join(' ');
+  answer = progressionSequence[missingPosition];
+  progressionSequence[missingPosition] = '..';
+  return progressionSequence.join(' ');
+};
+
+const getRandExpression = () => {
+  const progressionLength = getRandNumber(5, 15);
+  const progressionStep = getRandNumber(1, 10);
+  const theFirstNumber = getRandNumber(0, 50); // Первое число прогрессии
+  return generateProgression(progressionLength, progressionStep, theFirstNumber);
 };
 
 const gameQuestion = 'What number is missing in the progression?';
 
-export const answerFormat = 'number';
-
-const startTheGame = () => {
-  launchTheGameEngine(gameQuestion, getRandExpression, answerFormat, getResult);
+const startGame = () => {
+  launchGameEngine(gameQuestion, getRandExpression, getResult);
 };
 
-export default startTheGame;
+export default startGame;

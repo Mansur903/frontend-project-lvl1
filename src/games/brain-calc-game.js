@@ -1,35 +1,39 @@
 import { getRandNumber } from '../utils.js';
-import launchTheGameEngine from '../index.js';
+import launchGameEngine from '../index.js';
 
 let result;
+let randNumberOne;
+let randNumberTwo;
 
-export const getRandExpression = () => {
-  const randNumberOne = getRandNumber();
-  const randNumberTwo = getRandNumber();
+const getRandExpression = () => {
+  randNumberOne = getRandNumber();
+  randNumberTwo = getRandNumber();
   const randNumber = getRandNumber(0, 2);
+  let expression;
   switch (randNumber) {
     case 0:
       result = randNumberOne + randNumberTwo;
-      return `${randNumberOne} + ${randNumberTwo}`;
+      expression = `${randNumberOne} + ${randNumberTwo}`;
+      break;
     case 1:
       result = randNumberOne - randNumberTwo;
-      return `${randNumberOne} - ${randNumberTwo}`;
+      expression = `${randNumberOne} - ${randNumberTwo}`;
+      break;
     case 2:
       result = randNumberOne * randNumberTwo;
-      return `${randNumberOne} * ${randNumberTwo}`;
+      expression = `${randNumberOne} * ${randNumberTwo}`;
+      break;
     default:
   }
-  return 1;
+  return expression;
 };
 
-export const getResult = () => result;
+const getResult = () => result;
 
 const gameQuestion = 'What is the result of the expression?';
 
-export const answerFormat = 'number';
-
-const startTheGame = () => {
-  launchTheGameEngine(gameQuestion, getRandExpression, answerFormat, getResult);
+const startGame = () => {
+  launchGameEngine(gameQuestion, getRandExpression, getResult);
 };
 
-export default startTheGame;
+export default startGame;
