@@ -2,9 +2,9 @@ import { getRandNumber } from '../utils.js';
 import launchGameEngine from '../index.js';
 
 const getQuestionsAndAnswers = (roundsCount) => {
-  const progressionSequence = [];
   const allQuestionsAndAnswers = [];
   for (let i = 0; i < roundsCount; i += 1) {
+    const progressionSequence = [];
     const questionAndAnswer = {};
     const progressionLength = getRandNumber(5, 15);
     const progressionStep = getRandNumber(1, 10);
