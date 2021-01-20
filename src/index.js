@@ -11,18 +11,18 @@ const writeGreeting = () => {
 
 const launchGameEngine = (gameDescription, getQuestionsAndAnswers) => {
   const questionsAndAnswers = getQuestionsAndAnswers(roundsCount);
+  const questions = Object.keys(questionsAndAnswers);
+  const answers = Object.values(questionsAndAnswers);
   writeGreeting();
   console.log(gameDescription);
-  for (const item of questionsAndAnswers) {
-    for (const key in item) {
-      console.log(`Question: ${key}`);
-      const answer = readlineSync.question('Your answer: ');
-      if (answer === item[key]) {
-        console.log('Correct!');
-      } else {
-        console.log(`'${answer}' is wrong answer ;(. Correct answer was '${item[key]}'`);
-        return console.log(`Let's try again, ${name}!`);
-      }
+  for (let i = 0; i < questions.length; i += 1) {
+    console.log(`Question: ${questions[i]}`);
+    const answer = readlineSync.question('Your answer: ');
+    if (answer === answers[i]) {
+      console.log('Correct!');
+    } else {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answers[i]}'`);
+      return console.log(`Let's try again, ${name}!`);
     }
   }
   return console.log(`Congratulations, ${name}!`);

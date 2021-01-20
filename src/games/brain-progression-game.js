@@ -2,10 +2,9 @@ import { getRandNumber } from '../utils.js';
 import launchGameEngine from '../index.js';
 
 const getQuestionsAndAnswers = (roundsCount) => {
-  const allQuestionsAndAnswers = [];
+  const questionsAndAnswers = {};
   for (let i = 0; i < roundsCount; i += 1) {
     const progressionSequence = [];
-    const questionAndAnswer = {};
     const progressionLength = getRandNumber(5, 15);
     const progressionStep = getRandNumber(1, 10);
     const theFirstNumber = getRandNumber(0, 50); // Первое число прогрессии
@@ -16,10 +15,9 @@ const getQuestionsAndAnswers = (roundsCount) => {
     }
     const answer = progressionSequence[missingPosition];
     progressionSequence[missingPosition] = '..';
-    questionAndAnswer[progressionSequence.join(' ')] = String(answer);
-    allQuestionsAndAnswers.push(questionAndAnswer);
+    questionsAndAnswers[progressionSequence.join(' ')] = String(answer);
   }
-  return allQuestionsAndAnswers;
+  return questionsAndAnswers;
 };
 
 const gameQuestion = 'What number is missing in the progression?';

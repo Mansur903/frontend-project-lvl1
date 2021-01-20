@@ -8,8 +8,5 @@ parserOptions:
   sourceType: module
 rules: {
   no-console: "off",
-  import/extensions: "off",
-  no-await-in-loop: "off",
-  no-restricted-syntax: "off",
-  guard-for-in: "off"
+  import/extensions: "off"
 }

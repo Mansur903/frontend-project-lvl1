@@ -10,17 +10,15 @@ const getGCD = (a, b) => {
 };
 
 const getQuestionsAndAnswers = (roundsCount) => {
-  const allQuestionsAndAnswers = [];
+  const questionsAndAnswers = {};
   for (let i = 0; i < roundsCount; i += 1) {
-    const questionAndAnswer = {};
     const randNumberOne = getRandNumber();
     const randNumberTwo = getRandNumber();
     const expression = `${randNumberOne} ${randNumberTwo}`;
     const answer = getGCD(randNumberOne, randNumberTwo);
-    questionAndAnswer[expression] = String(answer);
-    allQuestionsAndAnswers.push(questionAndAnswer);
+    questionsAndAnswers[expression] = String(answer);
   }
-  return allQuestionsAndAnswers;
+  return questionsAndAnswers;
 };
 
 const gameDecription = 'Find the greatest common divisor of given numbers.';

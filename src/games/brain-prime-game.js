@@ -14,9 +14,8 @@ const isPrime = (n) => {
 };
 
 const getQuestionsAndAnswers = (roundsCount) => {
-  const allQuestionsAndAnswers = [];
+  const questionsAndAnswers = {};
   for (let i = 0; i < roundsCount; i += 1) {
-    const questionAndAnswer = {};
     let result;
     const randNumber = getRandNumber(1, 100);
     if (isPrime(randNumber)) {
@@ -24,10 +23,9 @@ const getQuestionsAndAnswers = (roundsCount) => {
     } else {
       result = 'no';
     }
-    questionAndAnswer[randNumber] = String(result);
-    allQuestionsAndAnswers.push(questionAndAnswer);
+    questionsAndAnswers[randNumber] = String(result);
   }
-  return allQuestionsAndAnswers;
+  return questionsAndAnswers;
 };
 
 const gameDecription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
