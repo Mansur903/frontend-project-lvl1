@@ -15,7 +15,7 @@ const getQuestionsAndAnswers = (roundsCount) => {
     } else {
       answer = 'no';
     }
-    questionsAndAnswers[randNumber] = String(answer);
+    questionsAndAnswers[randNumber] = answer;
   }
   return questionsAndAnswers;
 };
