@@ -9,17 +9,20 @@ const writeGreeting = () => {
   console.log(`Hello, ${name}!`);
 };
 
-const launchGameEngine = (gameDescription, gameExpression, result) => {
+const launchGameEngine = (gameDescription, getQuestionsAndAnswers) => {
+  const questionsAnswers = getQuestionsAndAnswers(roundsCount);
   writeGreeting();
   console.log(gameDescription);
-  for (let i = 1; i <= roundsCount; i += 1) {
-    console.log(`Question: ${gameExpression()}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (answer === result()) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result()}'`);
-      return console.log(`Let's try again, ${name}!`);
+  for (const item of questionsAnswers) {
+    for (const key in item) {
+      console.log(`Question: ${key}`);
+      const answer = readlineSync.question('Your answer: ');
+      if (answer === item[key]) {
+        console.log('Correct!');
+      } else {
+        console.log(`'${answer}' is wrong answer ;(. Correct answer was '${item[key]}'`);
+        return console.log(`Let's try again, ${name}!`);
+      }
     }
   }
   return console.log(`Congratulations, ${name}!`);

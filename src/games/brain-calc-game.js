@@ -1,39 +1,44 @@
 import { getRandNumber } from '../utils.js';
 import launchGameEngine from '../index.js';
 
-let result;
-let randNumberOne;
-let randNumberTwo;
-
-const getRandExpression = () => {
-  randNumberOne = getRandNumber();
-  randNumberTwo = getRandNumber();
-  const randNumber = getRandNumber(0, 2);
+const getQuestionsAndAnswers = (roundsCount) => {
+  const allQuestionsAndAnswers = [];
   let expression;
-  switch (randNumber) {
-    case 0:
-      result = randNumberOne + randNumberTwo;
-      expression = `${randNumberOne} + ${randNumberTwo}`;
-      break;
-    case 1:
-      result = randNumberOne - randNumberTwo;
-      expression = `${randNumberOne} - ${randNumberTwo}`;
-      break;
-    case 2:
-      result = randNumberOne * randNumberTwo;
-      expression = `${randNumberOne} * ${randNumberTwo}`;
-      break;
-    default:
+  let answer;
+  for (let i = 0; i < roundsCount; i += 1) {
+    const randNumberOne = getRandNumber();
+    const randNumberTwo = getRandNumber();
+    const randNumber = getRandNumber(0, 2);
+    const questionAndAnswer = {};
+    switch (randNumber) {
+      case 0:
+        answer = randNumberOne + randNumberTwo;
+        expression = `${randNumberOne} + ${randNumberTwo}`;
+        questionAndAnswer[expression] = String(answer);
+        allQuestionsAndAnswers.push(questionAndAnswer);
+        break;
+      case 1:
+        answer = randNumberOne - randNumberTwo;
+        expression = `${randNumberOne} - ${randNumberTwo}`;
+        questionAndAnswer[expression] = String(answer);
+        allQuestionsAndAnswers.push(questionAndAnswer);
+        break;
+      case 2:
+        answer = randNumberOne * randNumberTwo;
+        expression = `${randNumberOne} * ${randNumberTwo}`;
+        questionAndAnswer[expression] = String(answer);
+        allQuestionsAndAnswers.push(questionAndAnswer);
+        break;
+      default:
+    }
   }
-  return expression;
+  return allQuestionsAndAnswers;
 };
-
-const getResult = () => String(result);
 
 const gameQuestion = 'What is the result of the expression?';
 
 const startGame = () => {
-  launchGameEngine(gameQuestion, getRandExpression, getResult);
+  launchGameEngine(gameQuestion, getQuestionsAndAnswers);
 };
 
 export default startGame;

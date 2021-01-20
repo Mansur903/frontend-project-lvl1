@@ -1,5 +1,5 @@
 // ---------------------------------------------------------- Генерация случайного числа в диапазоне
-export const getRandNumber = (min = 1, max = 100) => {
+export const getRandNumber = (min = 1, max = 20) => {
   const number = min + Math.random() * (max + 1 - min);
   return Math.floor(number);
 };

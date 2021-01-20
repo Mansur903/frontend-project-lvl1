@@ -1,33 +1,31 @@
 import { getRandNumber } from '../utils.js';
 import launchGameEngine from '../index.js';
 
-let answer;
-
-const getResult = () => String(answer);
-
-const generateProgression = (length, step, firstNumber) => {
+const getQuestionsAndAnswers = (roundsCount) => {
   const progressionSequence = [];
-  const missingPosition = getRandNumber(0, length - 1);
-  progressionSequence[0] = firstNumber;
-  for (let i = 1; i < length; i += 1) {
-    progressionSequence[i] = progressionSequence[i - 1] + step; // Заполнение прогрессии
+  const allQuestionsAndAnswers = [];
+  for (let i = 0; i < roundsCount; i += 1) {
+    const questionAndAnswer = {};
+    const progressionLength = getRandNumber(5, 15);
+    const progressionStep = getRandNumber(1, 10);
+    const theFirstNumber = getRandNumber(0, 50); // Первое число прогрессии
+    const missingPosition = getRandNumber(0, progressionLength - 1);
+    progressionSequence[0] = theFirstNumber;
+    for (let counter = 1; counter < progressionLength; counter += 1) {
+      progressionSequence[counter] = progressionSequence[counter - 1] + progressionStep;
+    }
+    const answer = progressionSequence[missingPosition];
+    progressionSequence[missingPosition] = '..';
+    questionAndAnswer[progressionSequence.join(' ')] = String(answer);
+    allQuestionsAndAnswers.push(questionAndAnswer);
   }
-  answer = progressionSequence[missingPosition];
-  progressionSequence[missingPosition] = '..';
-  return progressionSequence.join(' ');
-};
-
-const getRandExpression = () => {
-  const progressionLength = getRandNumber(5, 15);
-  const progressionStep = getRandNumber(1, 10);
-  const theFirstNumber = getRandNumber(0, 50); // Первое число прогрессии
-  return generateProgression(progressionLength, progressionStep, theFirstNumber);
+  return allQuestionsAndAnswers;
 };
 
 const gameQuestion = 'What number is missing in the progression?';
 
 const startGame = () => {
-  launchGameEngine(gameQuestion, getRandExpression, getResult);
+  launchGameEngine(gameQuestion, getQuestionsAndAnswers);
 };
 
 export default startGame;
