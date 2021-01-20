@@ -10,10 +10,10 @@ const writeGreeting = () => {
 };
 
 const launchGameEngine = (gameDescription, getQuestionsAndAnswers) => {
-  const questionsAnswers = getQuestionsAndAnswers(roundsCount);
+  const questionsAndAnswers = getQuestionsAndAnswers(roundsCount);
   writeGreeting();
   console.log(gameDescription);
-  for (const item of questionsAnswers) {
+  for (const item of questionsAndAnswers) {
     for (const key in item) {
       console.log(`Question: ${key}`);
       const answer = readlineSync.question('Your answer: ');
