@@ -18,13 +18,8 @@ const isPrime = (number) => {
 const getQuestionsAndAnswers = () => {
   const questionsAndAnswers = {};
   for (let i = 0; i < roundsCount; i += 1) {
-    let result;
     const randNumber = getRandNumber(1, 100);
-    if (isPrime(randNumber)) {
-      result = 'yes';
-    } else {
-      result = 'no';
-    }
+    const result = isPrime(randNumber) ? 'yes' : 'no';
     questionsAndAnswers[randNumber] = String(result);
   }
   return questionsAndAnswers;
