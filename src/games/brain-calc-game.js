@@ -1,32 +1,52 @@
 import { getRandNumber } from '../utils.js';
-import launchGameEngine from '../index.js';
+import launchGameEngine, { roundsCount } from '../index.js';
 
-const getQuestionsAndAnswers = (roundsCount) => {
+const createExpression = (numberOne, numberTwo, operationVariable) => {
+  let expression;
+  switch (operationVariable) {
+    case 0:
+      expression = `${numberOne} + ${numberTwo}`;
+      break;
+    case 1:
+      expression = `${numberOne} - ${numberTwo}`;
+      break;
+    case 2:
+      expression = `${numberOne} * ${numberTwo}`;
+      break;
+    default: break;
+  }
+  return expression;
+};
+
+const evaluateExpression = (numberOne, numberTwo, operationVariable) => {
+  let answer;
+  switch (operationVariable) {
+    case 0:
+      answer = numberOne + numberTwo;
+      break;
+    case 1:
+      answer = numberOne - numberTwo;
+      break;
+    case 2:
+      answer = numberOne * numberTwo;
+      break;
+    default: break;
+  }
+  return answer;
+};
+
+const getQuestionsAndAnswers = () => {
   let expression;
   let answer;
   const questionsAndAnswers = {};
   for (let i = 0; i < roundsCount; i += 1) {
     const randNumberOne = getRandNumber();
     const randNumberTwo = getRandNumber();
-    const randNumber = getRandNumber(0, 2);
-    switch (randNumber) {
-      case 0:
-        answer = randNumberOne + randNumberTwo;
-        expression = `${randNumberOne} + ${randNumberTwo}`;
-        questionsAndAnswers[expression] = String(answer);
-        break;
-      case 1:
-        answer = randNumberOne - randNumberTwo;
-        expression = `${randNumberOne} - ${randNumberTwo}`;
-        questionsAndAnswers[expression] = String(answer);
-        break;
-      case 2:
-        answer = randNumberOne * randNumberTwo;
-        expression = `${randNumberOne} * ${randNumberTwo}`;
-        questionsAndAnswers[expression] = String(answer);
-        break;
-      default:
-    }
+    const operations = ['+', '-', '*'];
+    const operationVariable = getRandNumber(0, operations.length - 1);
+    expression = createExpression(randNumberOne, randNumberTwo, operationVariable);
+    answer = evaluateExpression(randNumberOne, randNumberTwo, operationVariable);
+    questionsAndAnswers[expression] = String(answer);
   }
   return questionsAndAnswers;
 };

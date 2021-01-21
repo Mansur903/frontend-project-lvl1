@@ -1,5 +1,5 @@
 import { getRandNumber } from '../utils.js';
-import launchGameEngine from '../index.js';
+import launchGameEngine, { roundsCount } from '../index.js';
 
 const getGCD = (a, b) => {
   if (b > 0) {
@@ -9,7 +9,7 @@ const getGCD = (a, b) => {
   return Math.abs(a);
 };
 
-const getQuestionsAndAnswers = (roundsCount) => {
+const getQuestionsAndAnswers = () => {
   const questionsAndAnswers = {};
   for (let i = 0; i < roundsCount; i += 1) {
     const randNumberOne = getRandNumber();

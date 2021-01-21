@@ -1,19 +1,21 @@
 import { getRandNumber } from '../utils.js';
-import launchGameEngine from '../index.js';
+import launchGameEngine, { roundsCount } from '../index.js';
 
-const isPrime = (n) => {
-  let i = 2;
-  const limit = Math.sqrt(n);
-  while (i <= limit) {
-    if (n % i === 0) {
+const isPrime = (number) => {
+  let divisor = 2;
+  const limit = Math.sqrt(number);
+  if (number === 0) return false;
+  if (number === 1) return false;
+  while (divisor <= limit) {
+    if (number % divisor === 0) {
       return false;
     }
-    i += 1;
+    divisor += 1;
   }
   return true;
 };
 
-const getQuestionsAndAnswers = (roundsCount) => {
+const getQuestionsAndAnswers = () => {
   const questionsAndAnswers = {};
   for (let i = 0; i < roundsCount; i += 1) {
     let result;

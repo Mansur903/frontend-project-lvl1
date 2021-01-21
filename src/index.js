@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 
-const roundsCount = 3;
+export const roundsCount = 3;
+
 let name = '';
 
 const writeGreeting = () => {
@@ -13,6 +14,7 @@ const launchGameEngine = (gameDescription, getQuestionsAndAnswers) => {
   const questionsAndAnswers = getQuestionsAndAnswers(roundsCount);
   const questions = Object.keys(questionsAndAnswers);
   const answers = Object.values(questionsAndAnswers);
+  let correctAnswerCounter = 0;
   writeGreeting();
   console.log(gameDescription);
   for (let i = 0; i < questions.length; i += 1) {
@@ -20,12 +22,14 @@ const launchGameEngine = (gameDescription, getQuestionsAndAnswers) => {
     const answer = readlineSync.question('Your answer: ');
     if (answer === answers[i]) {
       console.log('Correct!');
+      correctAnswerCounter += 1;
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answers[i]}'`);
-      return console.log(`Let's try again, ${name}!`);
+      console.log(`Let's try again, ${name}!`);
+      break;
     }
   }
-  return console.log(`Congratulations, ${name}!`);
+  if (correctAnswerCounter === 3) console.log(`Congratulations, ${name}!`);
 };
 
 export default launchGameEngine;

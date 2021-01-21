@@ -1,19 +1,28 @@
 import { getRandNumber } from '../utils.js';
-import launchGameEngine from '../index.js';
+import launchGameEngine, { roundsCount } from '../index.js';
 
-const getQuestionsAndAnswers = (roundsCount) => {
+const getAnswerOfMissingPosition = (progression, missingPosition) => {
+  const answer = progression[missingPosition];
+  return answer;
+};
+
+const generateProgression = (length, step, firstNumber) => {
+  const progressionSequence = [];
+  for (let counter = 0; counter < length; counter += 1) {
+    progressionSequence[counter] = firstNumber + step * counter;
+  }
+  return progressionSequence;
+};
+
+const getQuestionsAndAnswers = () => {
   const questionsAndAnswers = {};
   for (let i = 0; i < roundsCount; i += 1) {
-    const progressionSequence = [];
-    const progressionLength = getRandNumber(5, 15);
-    const progressionStep = getRandNumber(1, 10);
-    const theFirstNumber = getRandNumber(0, 50); // Первое число прогрессии
-    const missingPosition = getRandNumber(0, progressionLength - 1);
-    progressionSequence[0] = theFirstNumber;
-    for (let counter = 1; counter < progressionLength; counter += 1) {
-      progressionSequence[counter] = progressionSequence[counter - 1] + progressionStep;
-    }
-    const answer = progressionSequence[missingPosition];
+    const length = getRandNumber(5, 15);
+    const step = getRandNumber(1, 10);
+    const firstNumber = getRandNumber(0, 50);
+    const missingPosition = getRandNumber(0, length - 1);
+    const progressionSequence = generateProgression(length, step, firstNumber, missingPosition);
+    const answer = getAnswerOfMissingPosition(progressionSequence, missingPosition);
     progressionSequence[missingPosition] = '..';
     questionsAndAnswers[progressionSequence.join(' ')] = String(answer);
   }
