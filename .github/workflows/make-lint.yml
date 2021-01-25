@@ -14,7 +14,10 @@ jobs:
  
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
+      - name: node version
+        run: node -v
+
       - name: npm install, build
         run: make install
 
