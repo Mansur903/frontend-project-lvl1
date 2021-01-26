@@ -15,16 +15,17 @@ const generateProgression = (length, step, firstNumber) => {
 };
 
 const getQuestionsAndAnswers = () => {
-  const questionsAndAnswers = {};
+  const questionsAndAnswers = [];
   for (let i = 0; i < roundsCount; i += 1) {
     const length = getRandNumber(5, 15);
     const step = getRandNumber(1, 10);
     const firstNumber = getRandNumber(0, 50);
     const missingPosition = getRandNumber(0, length - 1);
-    const progressionSequence = generateProgression(length, step, firstNumber, missingPosition);
+    const progressionSequence = generateProgression(length, step, firstNumber);
     const answer = getAnswerOfMissingPosition(progressionSequence, missingPosition);
     progressionSequence[missingPosition] = '..';
-    questionsAndAnswers[progressionSequence.join(' ')] = String(answer);
+    questionsAndAnswers.push(progressionSequence.join(' '));
+    questionsAndAnswers.push(String(answer));
   }
   return questionsAndAnswers;
 };

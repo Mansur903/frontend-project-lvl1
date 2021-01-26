@@ -1,33 +1,16 @@
 import { getRandNumber } from '../utils.js';
 import launchGameEngine, { roundsCount } from '../index.js';
 
-const createExpression = (numberOne, numberTwo, operationVariable) => {
-  let expression;
-  switch (operationVariable) {
-    case 0:
-      expression = `${numberOne} + ${numberTwo}`;
-      break;
-    case 1:
-      expression = `${numberOne} - ${numberTwo}`;
-      break;
-    case 2:
-      expression = `${numberOne} * ${numberTwo}`;
-      break;
-    default: break;
-  }
-  return expression;
-};
-
 const evaluateExpression = (numberOne, numberTwo, operationVariable) => {
   let answer;
   switch (operationVariable) {
-    case 0:
+    case '+':
       answer = numberOne + numberTwo;
       break;
-    case 1:
+    case '-':
       answer = numberOne - numberTwo;
       break;
-    case 2:
+    case '*':
       answer = numberOne * numberTwo;
       break;
     default: break;
@@ -36,17 +19,16 @@ const evaluateExpression = (numberOne, numberTwo, operationVariable) => {
 };
 
 const getQuestionsAndAnswers = () => {
-  let expression;
-  let answer;
-  const questionsAndAnswers = {};
+  const questionsAndAnswers = [];
   for (let i = 0; i < roundsCount; i += 1) {
     const randNumberOne = getRandNumber();
     const randNumberTwo = getRandNumber();
     const operations = ['+', '-', '*'];
     const operationVariable = getRandNumber(0, operations.length - 1);
-    expression = createExpression(randNumberOne, randNumberTwo, operationVariable);
-    answer = evaluateExpression(randNumberOne, randNumberTwo, operationVariable);
-    questionsAndAnswers[expression] = String(answer);
+    const expression = `${randNumberOne} ${operations[operationVariable]} ${randNumberTwo}`;
+    const answer = evaluateExpression(randNumberOne, randNumberTwo, operations[operationVariable]);
+    questionsAndAnswers.push(expression);
+    questionsAndAnswers.push(String(answer));
   }
   return questionsAndAnswers;
 };

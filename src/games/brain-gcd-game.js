@@ -2,7 +2,7 @@ import { getRandNumber } from '../utils.js';
 import launchGameEngine, { roundsCount } from '../index.js';
 
 const getGCD = (a, b) => {
-  if (b > 0) {
+  if (b !== 0) {
     const k = a % b;
     return getGCD(b, k);
   }
@@ -10,13 +10,14 @@ const getGCD = (a, b) => {
 };
 
 const getQuestionsAndAnswers = () => {
-  const questionsAndAnswers = {};
+  const questionsAndAnswers = [];
   for (let i = 0; i < roundsCount; i += 1) {
     const randNumberOne = getRandNumber();
     const randNumberTwo = getRandNumber();
     const expression = `${randNumberOne} ${randNumberTwo}`;
     const answer = getGCD(randNumberOne, randNumberTwo);
-    questionsAndAnswers[expression] = String(answer);
+    questionsAndAnswers.push(expression);
+    questionsAndAnswers.push(String(answer));
   }
   return questionsAndAnswers;
 };

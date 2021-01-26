@@ -4,8 +4,7 @@ import launchGameEngine, { roundsCount } from '../index.js';
 const isPrime = (number) => {
   let divisor = 2;
   const limit = Math.sqrt(number);
-  if (number === 0) return false;
-  if (number === 1) return false;
+  if (number <= 1) return false;
   while (divisor <= limit) {
     if (number % divisor === 0) {
       return false;
@@ -16,11 +15,12 @@ const isPrime = (number) => {
 };
 
 const getQuestionsAndAnswers = () => {
-  const questionsAndAnswers = {};
+  const questionsAndAnswers = [];
   for (let i = 0; i < roundsCount; i += 1) {
     const randNumber = getRandNumber(1, 100);
     const result = isPrime(randNumber) ? 'yes' : 'no';
-    questionsAndAnswers[randNumber] = String(result);
+    questionsAndAnswers.push(randNumber);
+    questionsAndAnswers.push(String(result));
   }
   return questionsAndAnswers;
 };
