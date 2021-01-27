@@ -1,4 +1,4 @@
-name: make-lint
+name: setup-node
 
 on: push
 
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: '12'
+          node-version: '13'
           check-latest: true
       - run: npm install
       - run: npm test
