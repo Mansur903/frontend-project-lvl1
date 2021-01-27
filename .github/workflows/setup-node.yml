@@ -16,7 +16,6 @@ jobs:
           node-version: '13'
           check-latest: true
       - run: npm install
-      - run: npm test
 
       - name: node version
         run: node -v
