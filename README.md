@@ -1,7 +1,7 @@
 # Проект Brain-Games  
   
   ### Hexlet tests and linter status:
-<a href="https://github.com/Mansur903/frontend-project-lvl1"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a> ![make-lint](https://github.com/Mansur903/frontend-project-lvl1/workflows/make-lint/badge.svg) ![hexlet-check](https://github.com/Mansur903/frontend-project-lvl1/workflows/hexlet-check/badge.svg)
+<a href="https://github.com/Mansur903/frontend-project-lvl1"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a> [![make-lint](https://github.com/Mansur903/frontend-project-lvl1/workflows/make-lint/badge.svg)](https://github.com/Mansur903/frontend-project-lvl1/actions?query=workflow%3Amake-lint) [![hexlet-check](https://github.com/Mansur903/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/Mansur903/frontend-project-lvl1/actions?query=workflow%3Ahexlet-check)
 
 **Интро**  
   
